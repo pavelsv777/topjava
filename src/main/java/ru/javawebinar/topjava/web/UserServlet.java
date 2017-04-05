@@ -1,16 +1,27 @@
 package ru.javawebinar.topjava.web;
 
+import org.slf4j.Logger;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static org.slf4j.LoggerFactory.getLogger;
+
+
 /**
- * Created by User on 31.03.2017.
+ * User: gkislin
+ * Date: 19.08.2014
  */
-public class UserServlet extends javax.servlet.http.HttpServlet {
-    protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
+public class UserServlet extends HttpServlet {
+    private static final Logger LOG = getLogger(UserServlet.class);
 
-    }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        LOG.debug("redirect to users");
 
-    protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
-
+//        request.getRequestDispatcher("/users.jsp").forward(request, response);
+        response.sendRedirect("users.jsp");
     }
 }
